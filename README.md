@@ -6,8 +6,9 @@
 
 Say goodbye to SSH or RDP just to run a simple command or check the console. With WebConsole, everything is accessible through a modern neon-glass interface with real-time updates.
 
-**[Download Plugin](https://www.spigotmc.org/resources/webconsole.133712/)**
+**[Download Plugin SpigotMC](https://www.spigotmc.org/resources/webconsole.133712/)**
 **[Russian Version Plugin](https://github.com/TxTConsole/WebConsole-RU)**
+**[Download Plugin SpigotRU](https://spigotmc.ru/resources/webconsole.5257/)**
 
 ---
 
@@ -176,7 +177,8 @@ messages:
 
 ## 🔗 **Links**
 
-- **Source Code:** [GitHub Repository](https://github.com/TxTConsole/WebConsole)
+- **Source Code EN:** [GitHub Repository](https://github.com/TxTConsole/WebConsole-EN)
+- **Source Code RU:** [GitHub Repository](https://github.com/TxTConsole/WebConsole-RU)
 - **Report Issues / Suggestions:** Discord — @txt.console
 
 ---
