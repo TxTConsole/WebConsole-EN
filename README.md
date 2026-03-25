@@ -218,7 +218,7 @@ You must:
 A: Yes, but be sure to change the default password and use HTTPS if possible.
 
 **Q: Does it work with BungeeCord / Velocity?**  
-A: Currently designed for Bukkit/Spigot/Paper servers only. Proxy support may come in future updates.
+A: Currently designed for Purpur/Spigot/Paper servers only. Proxy support may come in future updates.
 
 **Q: How do I restart the server?**  
 A: Click the "Restart" button in the top bar. The server will save all data and restart.
@@ -238,6 +238,7 @@ If you find a bug or have a suggestion:
 
 If you find WebConsole useful, you can:
 - Leave a review on SpigotMC
+- Leave a review on SpigotRU
 - Star the repository on GitHub
 - Share with other server administrators
 
