@@ -170,7 +170,7 @@ messages:
 ## 🧩 **Requirements**
 
 - **Server:** Paper 1.21.4 (also works on Spigot, Purpur)
-- **Java:** 17 or higher
+- **Java:** 21
 - **Browser:** Any modern browser (Chrome, Firefox, Edge)
 
 ---
