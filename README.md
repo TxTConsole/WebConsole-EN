@@ -199,7 +199,7 @@ You must:
 
 ---
 
-## 🙏 **Credits**
+## 🍀 **Additional information**
 
 - **Author:** TxT | </> Console
 - **Design:** Custom neon-glass theme
