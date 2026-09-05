@@ -1,4 +1,5 @@
-<img width="1918" height="942" alt="изображение" src="https://github.com/user-attachments/assets/4c0e5b1f-7f67-4139-8cec-e79e6409478f" />
+<img width="1918" height="942" alt="изображение" src="https://github.com/user-attachments/assets/47b7e02e-7b57-44a3-9026-e522c1b44c1d" />
+
 
 ## 🚀 **What is WebConsole?**
 
@@ -285,7 +286,7 @@ plugins:
 
 ## 📸 **Screenshots**
 
-<img width="1918" height="942" alt="изображение" src="https://github.com/user-attachments/assets/4c0e5b1f-7f67-4139-8cec-e79e6409478f" />
+<img width="1918" height="942" alt="изображение" src="https://github.com/user-attachments/assets/47b7e02e-7b57-44a3-9026-e522c1b44c1d" />
 <img width="1917" height="944" alt="изображение" src="https://github.com/user-attachments/assets/3485b748-34ac-42dd-9297-af19415d8366" />
 <img width="1918" height="944" alt="изображение" src="https://github.com/user-attachments/assets/1e0c5a39-d9b1-48f0-80a1-b2c1d326a1fb" />
 <img width="1917" height="944" alt="изображение" src="https://github.com/user-attachments/assets/d0e80ee3-c758-407e-8319-95d56cc9f6bd" />
