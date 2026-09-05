@@ -1,4 +1,4 @@
-<img width="1237" height="962" alt="image" src="https://github.com/user-attachments/assets/e399efa1-29f9-4a22-849a-f5e4f97f90f3" />
+<img width="1916" height="945" alt="изображение" src="https://github.com/user-attachments/assets/e35fc8a3-f1f6-4b43-b178-18dd477aaeca" />
 
 ## 🚀 **What is WebConsole?**
 
@@ -96,47 +96,179 @@ Say goodbye to SSH or RDP just to run a simple command or check the console. Wit
 ## 📋 **Configuration (`config.yml`)**
 
 ```yaml
-# ==========================================
-# WebConsole Configuration v1.0.0
-# ==========================================
-
+# ==========================
+# WebConsole Configuration
+# Version -> v1.1-SNAPSHOT
+# Discord -> @txt.console
+# ==========================
+    
+# Web control panel settings.
 server:
-  # Port for the web interface
-  # Server restart required after changing
+  # Port where the panel will be accessible (e.g., http://server-ip:8080)
   port: 8080
+  # IP binding. 0.0.0.0 allows external connections.
+  host: "0.0.0.0"
+
+# Default language for the panel (ru / en).
+# - Changes the language of ALL panel strings on first visit.
+# - Changes the console welcome message on server startup.
+# - If an admin selects a different language in the panel itself, it is saved
+#   personally for them (persists across restarts) and won't be overridden by this value.
+lang: en
 
 security:
-  # Enable authentication (true/false)
-  # If false, access will be open without a password (not recommended!)
-  enabled: true
-
-  # Session timeout in hours (for those who check "Remember me")
-  # Re-authentication required after timeout
+  # Duration of authorized session in hours
   session-timeout-hours: 24
 
-  # User list (username: "password")
-  # You can add any number of users
+  # Brute-force protection
+  max-failed-attempts: 5
+  # Command executed by the server when login attempt limit is exceeded
+  # Variables: %ip%, %username%
+  punishment-command: "ban-ip %ip% Exceeded WebConsole login attempts"
+  # IP lock duration in the web panel (in minutes)
+  lockout-minutes: 30
+
+  # ==========================================================
+  # Panel user list.
+  #
+  # Each user has their own password and set of permissions.
+  # Format:
+  #    <username>:
+  #      password: "<password>"
+  #      permissions:
+  #        <permission>: <true/false>
+  #
+  # If a user does NOT have a permissions block specified, they get EVERYTHING
+  # (full administrator access).
+  #
+  # Available permissions:
+  # -----------------
+  # console            -> "Server Console" section and command execution
+  # players            -> "Online Players" section
+  # files              -> "Files" section
+  # plugins            -> "Plugins" section (search and install plugins)
+  # logs               -> "Action Logs" section
+  # server_settings    -> "Server Settings" in the settings tab
+  # sanctions          -> punishments: ban / mute / kick / unban / unmute
+  # ops                -> granting and revoking operator status
+  # whitelist          -> whitelist management
+  # file_edit          -> creating and editing files (including uploading).
+  #                       IMPORTANT: even with this permission, you cannot create or
+  #                       upload files inside plugins/ folder without the
+  #                       plugins permission below.
+  # file_delete_download-> deleting and downloading files
+  # mod_folder         -> access to WebConsole plugin folder via "Files".
+  #                       WITHOUT it, you cannot enter the folder, or download/delete
+  #                       the plugin's own jar file.
+  # wc_reload          -> command /wc reload (reloading WebConsole panel).
+  #                       By default, this permission equals mod_folder: if the
+  #                       administrator has no access to the plugin folder, command
+  #                       is forbidden. If access exists, reload can be configured separately.
+  # server_control     -> restarting and stopping the server
+  # logs_manage        -> deleting and downloading server logs.
+  #                       WITHOUT this permission, the user CANNOT enter
+  #                       logs and crash-reports folders even with access
+  #                       to "Files", or open log archives.
+  #
+  # Old format (username: "password") also works — such a user
+  # gets all permissions automatically (full access).
+  # ==========================================================
   users:
-    admin: "admin123"
-    moderator: "mod123"
-    # user: "password" - example of adding a new user
+    admin:
+      password: "admin_password_here"
+      permissions:
+        console: true
+        players: true
+        files: true
+        plugins: true
+        logs: true
+        server_settings: true
+        sanctions: true
+        ops: true
+        whitelist: true
+        file_edit: true
+        file_delete_download: true
+        mod_folder: true
+        server_control: true
+        logs_manage: true
+        wc_reload: true
+    moderator:
+      password: "mod_secret_123"
+      permissions:
+        console: true
+        players: true
+        files: true
+        plugins: false
+        logs: true
+        server_settings: false
+        sanctions: true
+        ops: false
+        whitelist: false
+        file_edit: true
+        file_delete_download: false
+        mod_folder: false
+        server_control: false
+        logs_manage: false
+        wc_reload: false
+    developer:
+      password: "dev_pass_2026"
+      permissions:
+        console: true
+        players: false
+        files: true
+        plugins: true
+        logs: false
+        server_settings: true
+        sanctions: false
+        ops: false
+        whitelist: false
+        file_edit: true
+        file_delete_download: true
+        mod_folder: true
+        server_control: false
+        logs_manage: true
+        wc_reload: true
 
-  # Allow command execution from web console (true/false)
-  # If false, the command input will be disabled
-  allow-commands: true
+# ============================================================
+# Moderation System (Ban / Mute / Kick)
+# ============================================================
+# If a known moderation plugin is installed (e.g. LiteBans), it is
+# detected automatically and Ban/Mute buttons are activated.
+#
+# If using a custom plugin — set commands below and set
+# enabled: true. Reload our plugin after editing this file.
+# Variables: %player% %reason% %duration% (empty duration = permanent)
+# Auto-detected plugins: LiteBans, AdvancedBan, LightBans.
+# If you use one of these, you can leave command empty for auto-matching.
+moderation:
+  ban:
+    enabled: false
+    command: ""
+    # Example for LiteBans/AdvancedBan/LightBans (empty = auto-detect):
+    # command: "litebans:ban %player% %duration% %reason%"
+    # Unban command. Variable: %player%
+    unban-command: ""
+    # command: "litebans:unban %player%"
+  mute:
+    enabled: false
+    command: ""
+    # command: "litebans:mute %player% %duration% %reason%"
+    # Unmute command. Variable: %player%
+    unmute-command: ""
+    # command: "litebans:unmute %player%"
+  kick:
+    # Kick uses native Minecraft commands, so it is always available.
+    enabled: true
+    command: "kick %player% %reason%"
 
-console:
-  # Maximum number of lines stored in memory
-  # Higher values consume more RAM
-  max-history-limit: 500
-
-  # Time format in logs
-  time-format: "HH:mm:ss"
-
-# System messages
-messages:
-  server-started: "WebConsole started on port"
-  access-denied: "You do not have permission to execute this command"
+# ============================================================
+# PLUGINS Section (Plugin search/installation feature)
+# ============================================================
+# Modrinth works without a key. CurseForge requires a free
+# API key: register at https://console.curseforge.com
+# and specify the key below (or enter it in panel settings).
+plugins:
+  curseforge-api-key: ""
 ```
 
 ---
@@ -153,22 +285,19 @@ messages:
 
 ## 📸 **Screenshots**
 
-<img width="1237" height="960" alt="image" src="https://github.com/user-attachments/assets/67886a7f-e894-432a-81c4-8e817257c797" />
-<img width="1237" height="964" alt="image" src="https://github.com/user-attachments/assets/e30de701-79e7-456c-ba26-20d320cabd63" />
-<img width="1237" height="965" alt="image" src="https://github.com/user-attachments/assets/c90b72ae-d223-4aae-bccd-f18d7b6e70b8" />
-<img width="1237" height="964" alt="image" src="https://github.com/user-attachments/assets/032b6810-b18b-4a25-a872-51d215053851" />
-<img width="1238" height="963" alt="image" src="https://github.com/user-attachments/assets/160c8259-98f5-4fae-87b1-1cfd6f36f9b8" />
-<img width="1237" height="964" alt="image" src="https://github.com/user-attachments/assets/72356ab8-1048-4a5b-bb98-30952dae7cba" />
-<img width="1237" height="963" alt="image" src="https://github.com/user-attachments/assets/29fa1f4f-2f60-4cf6-bc25-5f5395c5fe7c" />
-<img width="1237" height="962" alt="image" src="https://github.com/user-attachments/assets/fb2f9977-3aea-4df2-a67a-72e188602ca8" />
-
-
+<img width="1916" height="945" alt="изображение" src="https://github.com/user-attachments/assets/e35fc8a3-f1f6-4b43-b178-18dd477aaeca" />
+<img width="1917" height="942" alt="изображение" src="https://github.com/user-attachments/assets/aa96855c-6b79-4bc2-ae8f-fa73cf89c412" />
+<img width="1917" height="944" alt="изображение" src="https://github.com/user-attachments/assets/ca1cb820-90b0-4b92-b840-2d920a8d3a33" />
+<img width="1915" height="944" alt="изображение" src="https://github.com/user-attachments/assets/01fd5bd4-4d6b-43f6-8f4e-7db0e21d4d38" />
+<img width="1916" height="946" alt="изображение" src="https://github.com/user-attachments/assets/6cfdc606-4938-458a-ab98-4b5add4bf86e" />
+<img width="1918" height="944" alt="изображение" src="https://github.com/user-attachments/assets/96b42f19-6893-47a7-9c6f-383366de595f" />
+<img width="1916" height="943" alt="изображение" src="https://github.com/user-attachments/assets/14951d72-fad7-4307-a3a2-91b49d240ff8" />
 
 ---
 
 ## 🧩 **Requirements**
 
-- **Server:** Paper 1.21.4 (also works on Spigot, Purpur)
+- **Server:** Version 1.21+ (also works on Spigot, Purpur, Paper)
 - **Java:** 21
 - **Browser:** Any modern browser (Chrome, Firefox, Edge)
 
