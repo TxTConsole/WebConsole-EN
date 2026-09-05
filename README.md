@@ -1,4 +1,4 @@
-<img width="1916" height="945" alt="изображение" src="https://github.com/user-attachments/assets/e35fc8a3-f1f6-4b43-b178-18dd477aaeca" />
+<img width="1918" height="942" alt="изображение" src="https://github.com/user-attachments/assets/4c0e5b1f-7f67-4139-8cec-e79e6409478f" />
 
 ## 🚀 **What is WebConsole?**
 
@@ -285,13 +285,13 @@ plugins:
 
 ## 📸 **Screenshots**
 
-<img width="1916" height="945" alt="изображение" src="https://github.com/user-attachments/assets/e35fc8a3-f1f6-4b43-b178-18dd477aaeca" />
-<img width="1917" height="942" alt="изображение" src="https://github.com/user-attachments/assets/aa96855c-6b79-4bc2-ae8f-fa73cf89c412" />
-<img width="1917" height="944" alt="изображение" src="https://github.com/user-attachments/assets/ca1cb820-90b0-4b92-b840-2d920a8d3a33" />
-<img width="1915" height="944" alt="изображение" src="https://github.com/user-attachments/assets/01fd5bd4-4d6b-43f6-8f4e-7db0e21d4d38" />
-<img width="1916" height="946" alt="изображение" src="https://github.com/user-attachments/assets/6cfdc606-4938-458a-ab98-4b5add4bf86e" />
-<img width="1918" height="944" alt="изображение" src="https://github.com/user-attachments/assets/96b42f19-6893-47a7-9c6f-383366de595f" />
-<img width="1916" height="943" alt="изображение" src="https://github.com/user-attachments/assets/14951d72-fad7-4307-a3a2-91b49d240ff8" />
+<img width="1918" height="942" alt="изображение" src="https://github.com/user-attachments/assets/4c0e5b1f-7f67-4139-8cec-e79e6409478f" />
+<img width="1917" height="944" alt="изображение" src="https://github.com/user-attachments/assets/3485b748-34ac-42dd-9297-af19415d8366" />
+<img width="1918" height="944" alt="изображение" src="https://github.com/user-attachments/assets/1e0c5a39-d9b1-48f0-80a1-b2c1d326a1fb" />
+<img width="1917" height="944" alt="изображение" src="https://github.com/user-attachments/assets/d0e80ee3-c758-407e-8319-95d56cc9f6bd" />
+<img width="1919" height="941" alt="изображение" src="https://github.com/user-attachments/assets/d1b576f9-1704-4a61-a24e-441c08acb070" />
+<img width="1918" height="944" alt="изображение" src="https://github.com/user-attachments/assets/da688b2a-9f3b-42e2-b629-5765a684755d" />
+<img width="1918" height="943" alt="изображение" src="https://github.com/user-attachments/assets/beb4f307-e287-4d80-948e-29219fef3b89" />
 
 ---
 
